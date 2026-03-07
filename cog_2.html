@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새 생명의 공동체 - 소그룹 나눔</title>
+    <style>
+        /* 폰트 및 기본 설정 */
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            background-color: #131314; /* 이미지 배경과 유사한 어두운 색상 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 메인 컨테이너 (카드) */
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px; /* 모바일 및 태블릿에 적합한 너비 */
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-sizing: border-box;
+        }
+
+        /* 헤더 영역 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .header-text .subtitle {
+            color: #1a73e8;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .header-text .title {
+            color: #202124;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .header-icon {
+            color: #7f878f;
+        }
+
+        /* 섹션 구분선 */
+        .divider {
+            height: 1px;
+            background-color: #f1f3f4;
+            margin: 0 -20px 24px -20px;
+        }
+
+        /* 섹션 헤더 (로마자 뱃지 + 제목) */
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .badge {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 12px;
+            font-family: serif; /* 로마자 느낌 강조 */
+        }
+
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #3c4043;
+            margin: 0;
+        }
+
+        /* 질문 카드 */
+        .question-card {
+            background-color: #ffffff;
+            border: 1px solid #e8eaed;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            transition: border-color 0.2s;
+        }
+
+        .question-card:hover {
+            border-color: #d2e3fc;
+        }
+
+        .question-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #202124;
+            font-weight: 600;
+            margin: 0 0 16px 0;
+            word-break: keep-all;
+        }
+
+        /* 아코디언 토글 버튼 */
+        .toggle-btn {
+            display: flex;
+            align-items: center;
+            color: #1a73e8;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+            border-top: 1px solid #f1f3f4;
+            padding-top: 16px;
+            margin-top: 8px;
+        }
+
+        .toggle-btn span {
+            flex-grow: 1;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.open {
+            transform: rotate(180deg);
+        }
+
+        /* 답변 영역 (기본 숨김) */
+        .answer-content {
+            display: none;
+            padding-top: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4d5156;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .answer-content strong {
+            color: #202124;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 여백 조정 */
+        .mt-40 { margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-text">
+            <div class="subtitle">시광교회 소그룹</div>
+            <h1 class="title">2. 새 생명의 공동체</h1>
+        </div>
+        <div class="header-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c4-4 4-10 0-14-4 4-4 10 0 14z"></path>
+                <path d="M12 22c-4-4-4-10 0-14 4 4 4 10 0 14z"></path>
+                <path d="M12 8V2"></path>
+            </svg>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-header">
+        <div class="badge">I</div>
+        <h2 class="section-title">내용 이해 질문</h2>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">1. (대지 1) 우리가 영적으로 죽어 있다는 상태를 설교자는 두 가지 특징으로 설명합니다. 영적 죽음의 구체적인 증상은 무엇입니까?</p>
+        <div class="toggle-btn" onclick="toggleAnswer(this)">
+            <span>답변 확인하기</span>
+            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="answer-content">
+            <strong>* 첫째, 영적 감각의 상실입니다.</strong> 식물이 감각이 없듯, 영적으로 죽은 자는 하나님의 임재나 말씀이라는 영적 자극에 반응하지 못합니다.<br><br>
+            <strong>둘째, 육체의 욕심을 따르는 노예 상태입니다.</strong> 하나님이 아닌 다른 것(돈, 명예, 관계 등)을 궁극적인 것으로 여기며 그것을 채우려 하지만, 결국 채워지지 않는 공허함 속에 갇히게 됩니다.
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">2. (대지 2) 거듭난 사람(새 생명을 얻은 자)이 하나님의 말씀을 대하는 태도는 '지식'을 대할 때와 어떻게 다릅니까?</p>
+        <div class="toggle-btn" onclick="toggleAnswer(this)">
+            <span>답변 확인하기</span>
+            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="answer-content">
+            거듭난 사람에게 말씀은 단순한 성분 분석 대상인 '지식'이 아니라, 영혼을 살리는 <strong>'양식'</strong>이자 <strong>'정찬'</strong>입니다. 이들은 지식으로 자신을 자랑하지 않고, 같은 말씀이라도 반복해서 먹으며 그 안에서 생명력을 얻습니다.
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">3. (대지 3) 설교자는 우리가 거듭나게 된 원동력을 '해산의 고통'에 비유합니다. 우리가 새 생명을 얻기 위해 예수님이 지불하신 대가는 무엇입니까?</p>
+        <div class="toggle-btn" onclick="toggleAnswer(this)">
+            <span>답변 확인하기</span>
+            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="answer-content">
+            예수님은 자신의 죽음의 때를 '여자의 해산할 때'에 비유하시며, 우리에게 새 생명을 주기 위해 자신의 <strong>생명을 대가로 지불</strong>하셨습니다. 마치 어머니가 생사의 갈림길에서 아이를 낳듯, 예수님은 십자가에서 피 흘리시고 죽으시는 고통을 통해 우리를 영적인 자녀로 낳으셨습니다.
+        </div>
+    </div>
+
+    <div class="section-header mt-40">
+        <div class="badge">II</div>
+        <h2 class="section-title">삶의 적용 질문</h2>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">4. 고난이나 위기 상황이 닥쳤을 때, 나는 '영적으로 살아있는 반응'을 합니까, 아니면 '가라앉는 반응'을 합니까? 최근의 경험을 떠올려 보십시오.</p>
+        <div class="toggle-btn" onclick="toggleAnswer(this)">
+            <span>가이드 보기</span>
+            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="answer-content">
+            설교 중의 노부부처럼 비극적인 상황에서도 "주님이 다스리신다"는 말씀 한 구절에 평안을 얻고 반응한다면 살아있는 상태입니다. 반면, "이게 나한테 무슨 도움이 되느냐"며 냉소적으로 변하거나 절망에만 빠져 있다면, 나의 영적 감각이 무뎌진 것은 아닌지 돌아보고 '새 생명의 공급'을 구해야 합니다.
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">5. 영적으로 침체되어 항해할 능력을 잃었다고 느낄 때, 내가 붙들어야 할 '신선한 바람'은 무엇입니까? 구체적인 실천 방안(예: 예배, 암송, 묵상 등)을 나누어 보십시오.</p>
+        <div class="toggle-btn" onclick="toggleAnswer(this)">
+            <span>가이드 보기</span>
+            <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="answer-content">
+            우리에게 필요한 것은 성공을 위한 '유익한 조언(율법적 단계)'이 아니라, 나를 구원하기 위해 하나님이 행하신 일을 계속해서 듣는 <strong>'복음의 바람'</strong>입니다. 영적 침체기에는 스스로 무언가를 하려는 노력을 잠시 내려놓고, 나 같은 죄인을 살리신 은혜를 찬양하거나 복음의 메시지가 선포되는 예배의 자리에 나를 노출시키는 것이 필요합니다.
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // 아코디언 동작 스크립트
+    function toggleAnswer(btn) {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.toggle-icon');
+        
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            icon.classList.remove('open');
+        } else {
+            content.style.display = "block";
+            icon.classList.add('open');
+        }
+    }
+</script>
+
+</body>
+</html>
