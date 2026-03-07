@@ -28,8 +28,8 @@
         .container {
             background-color: var(--content-bg);
             width: 100%;
-            max-width: 700px; /* PC에서 글씨가 너무 넓게 퍼지지 않도록 제한 */
-            min-height: 100vh; /* 모바일에서는 화면 전체 높이 사용 */
+            max-width: 700px;
+            min-height: 100vh;
             padding: 24px 20px 60px 20px;
             box-sizing: border-box;
         }
@@ -40,7 +40,7 @@
                 min-height: auto;
                 margin: 40px auto;
                 border-radius: 16px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* 부드러운 그림자 */
+                box-shadow: 0 4px 20px rgba(0,0,0,0.05);
                 border: 1px solid #e8eaed;
             }
         }
@@ -59,23 +59,25 @@
             font-weight: 700;
         }
 
-        /* 폰트 크기 조절 버튼 */
+        /* 직관적인 폰트 크기 조절 버튼 */
         .font-controls {
             display: flex;
             background-color: #f1f3f4;
             border-radius: 20px;
             overflow: hidden;
+            align-items: center;
         }
 
         .font-btn {
             background: none;
             border: none;
-            padding: 6px 14px;
-            font-size: 14px;
-            font-weight: 700;
+            padding: 8px 12px;
             color: #5f6368;
             cursor: pointer;
             transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .font-btn:hover {
@@ -87,11 +89,8 @@
             background-color: #dadce0;
         }
 
-        /* 헤더 영역 (제목 및 새싹 아이콘) */
+        /* 헤더 영역 (제목) */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
             margin-bottom: 24px;
         }
 
@@ -102,14 +101,6 @@
             margin: 0;
             line-height: 1.3;
             word-break: keep-all;
-        }
-
-        /* 우상단 새싹 아이콘 */
-        .sprout-icon {
-            flex-shrink: 0;
-            margin-left: 12px;
-            margin-top: 4px;
-            color: #9aa0a6;
         }
 
         /* 섹션 구분선 */
@@ -230,18 +221,22 @@
     <div class="top-bar">
         <div class="subtitle">시광교회 소그룹</div>
         <div class="font-controls">
-            <button class="font-btn" onclick="changeFontSize(-0.1)" title="글자 작게">A-</button>
-            <button class="font-btn" onclick="changeFontSize(0.1)" title="글자 크게">A+</button>
+            <button class="font-btn" onclick="changeFontSize(-0.1)" title="글자 작게">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+            <button class="font-btn" onclick="changeFontSize(0.1)" title="글자 크게">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
         </div>
     </div>
 
     <div class="header">
         <h1 class="title">2. 새 생명의 공동체</h1>
-        <div class="sprout-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.0001 21.9998C11.5859 21.9998 11.2501 21.664 11.2501 21.2498V15.654C8.20377 15.0125 5.56708 12.9152 4.41499 10.035C4.26081 9.64956 4.44855 9.21183 4.83401 9.05765C5.21946 8.90347 5.65719 9.09121 5.81137 9.47667C6.73685 11.7904 8.87532 13.5042 11.4116 14.0772C11.6669 13.0645 12.2272 12.1319 13.0126 11.3465C14.7176 9.64154 17.5144 8.65349 19.349 9.32598C19.4678 9.36952 19.5702 9.44426 19.6444 9.5414C19.7185 9.63855 19.7612 9.75402 19.7674 9.87403C19.8643 11.751 18.9958 14.653 17.2553 16.3934C15.6868 17.9619 13.6231 18.5752 11.834 18.4112V21.2498C11.834 21.664 11.4982 21.9998 11.084 21.9998H12.0001ZM16.1946 15.3328C17.6537 13.8737 18.3308 11.4883 18.2541 10.0278C16.8122 9.62316 14.536 10.4287 13.1678 11.7969C11.8155 13.1492 11.0044 15.4208 11.3857 16.8631C12.8378 16.9621 15.1587 16.3687 16.1946 15.3328Z" />
-            </svg>
-        </div>
     </div>
 
     <div class="divider"></div>
@@ -335,7 +330,7 @@
     function changeFontSize(step) {
         currentScale += step;
         
-        // 글자가 너무 작아지거나 화면 밖으로 튀어나갈 정도로 커지지 않게 제한
+        // 글자가 너무 작아지거나 너무 커지지 않게 제한
         if (currentScale < 0.8) currentScale = 0.8;
         if (currentScale > 1.4) currentScale = 1.4;
         
